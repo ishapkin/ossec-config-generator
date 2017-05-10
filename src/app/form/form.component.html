@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="row row-flex">
+    <div class="card">
+      <div class="card-header">
+        <h5>Ввод условий</h5>
+      </div>
+      <div class="card-block">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Глобальные настройки</h5>
+              <div class="form-group">
+                <label>Включено оповещение по почте</label>
+                <select class="form-control" formControlName="email_notification">
+                  <option *ngFor="let i of selectData" (value)="i.key">{{i.val}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Кому отправлять оповещения</label>
+                <input class="form-control" formControlName="email_to" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Отправитель</label>
+                <input class="form-control" formControlName="email_from" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>SMTP Сервер</label>
+                <input class="form-control" formControlName="smtp_server" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Максимальное количество писем отправляемых за час</label>
+                <input class="form-control" formControlName="email_maxperhour" placeholder="">
+              </div>
+              <h5>База данных</h5>
+              <div class="form-group">
+                <label>Хост</label>
+                <input class="form-control" formControlName="hostname" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Имя пользователя</label>
+                <input class="form-control" formControlName="username" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Пароль</label>
+                <input class="form-control" formControlName="password" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Имя БД</label>
+                <input class="form-control" formControlName="database" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Сканировать при старте</label>
+                <select class="form-control" formControlName="scan_on_start">
+                  <option *ngFor="let i of databaseTypes" (value)="i">{{i}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h5>Параметры проверки целостности файлов</h5>
+              <div class="form-group">
+                <label>Периодичность запуска проверки в секундах</label>
+                <input class="form-control" formControlName="frequency" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Каталоги для проверки</label>
+                <input class="form-control" formControlName="directories" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Файлы которые нужно игнорировать</label>
+                <input class="form-control" formControlName="ignore" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Сканировать при старте</label>
+                <select class="form-control" formControlName="scan_on_start">
+                  <option *ngFor="let i of selectData" (value)="i.key">{{i.val}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Оповещать о новых файлах</label>
+                <select class="form-control" formControlName="alert_new_files">
+                  <option *ngFor="let i of selectData" (value)="i.key">{{i.val}}</option>
+                </select>
+              </div>
+              <h5>Руткит</h5>
+              <div class="form-group">
+                <label>Файлы</label>
+                <input class="form-control" formControlName="rootkit_files" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Трояны</label>
+                <input class="form-control" formControlName="rootkit_trojans" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Аудит</label>
+                <input class="form-control" formControlName="system_audit" placeholder="">
+              </div>
+              <div class="form-group">
+                <label>Формат</label>
+                <input class="form-control" formControlName="format" placeholder="">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="row row-flex">
+    <div class="card">
+      <div class="card-header">
+        <h5>Исходный код</h5>
+      </div>
+      <div class="card-block">
+        <codemirror [(ngModel)]="code" [config]="{mode : 'xml',htmlMode: true}"></codemirror>
+      </div>
+      <div class="card-footer">
+        <a href="../../../ossec.conf" download="ossec.conf" class="btn btn-success pull-right"><i class="fa fa-save"></i>&nbsp;Скачать</a>
+      </div>
+    </div>
+  </div>
+</div>
