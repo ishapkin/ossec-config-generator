@@ -8,8 +8,6 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
-import { ModalComponent } from './modal/modal.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CodemirrorModule } from 'ng2-codemirror';
 
 
@@ -18,16 +16,14 @@ import { CodemirrorModule } from 'ng2-codemirror';
     AppComponent,
     NavComponent,
     FooterComponent,
-    FormComponent,
-    ModalComponent
+    FormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    CodemirrorModule,
-    NgbModule.forRoot()
+    CodemirrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
